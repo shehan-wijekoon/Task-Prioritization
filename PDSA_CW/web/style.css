@@ -1,0 +1,131 @@
+/*
+ * MODERN TASK SCHEDULER STYLESHEET
+ * Updates for cleaner fonts, softer shadows, and better spacing.
+ */
+
+body {
+    /* Modern, clean font stack */
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+    line-height: 1.6;
+    max-width: 1000px; /* Slightly wider dashboard for better spacing */
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #f8f9fa; /* Lighter, subtle background */
+    color: #212529; /* Darker text for readability */
+}
+
+/* --- Typography --- */
+
+h1 { 
+    color: #4a4e69; /* Dark, professional heading color */
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.2em;
+    font-weight: 600;
+}
+h2 { 
+    /* Removed border-bottom for a cleaner look */
+    padding-bottom: 5px; 
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #4a4e69;
+}
+
+/* --- Layout (Container Cards) --- */
+
+.container {
+    display: flex;
+    gap: 30px; /* Increased gap for better separation */
+    margin-bottom: 40px;
+}
+.form-section, .action-section {
+    flex: 1;
+    padding: 25px;
+    background: #ffffff; /* White card background */
+    border-radius: 12px; /* Smoothly rounded corners */
+    /* Soft, modern shadow */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08); 
+    border: none; /* Removed thin gray border */
+    transition: box-shadow 0.3s ease;
+}
+.form-section:hover, .action-section:hover {
+    /* Slight lift/darken on hover for interaction feedback */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* --- Form Elements --- */
+
+input[type="text"], input[type="number"], select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 8px; 
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+/* --- Button Styling --- */
+
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1em;
+    transition: background-color 0.2s ease;
+    color: white; /* Ensure text is white */
+}
+
+/* Add Task Button (Primary color: Green for positive action) */
+button[name="addTask"] {
+    background-color: #5cb85c;
+}
+button[name="addTask"]:hover {
+    background-color: #449d44;
+}
+
+/* Mark as Complete Button (Secondary color: Blue for confirmation) */
+.complete-button {
+    background-color: #007bff;
+    margin-top: 15px;
+}
+.complete-button:hover {
+    background-color: #0056b3;
+}
+
+/* --- List Display Section --- */
+
+.heap-display {
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+.heap-display ol {
+    list-style: none;
+    padding: 0;
+}
+.heap-display li {
+    background: #e9ecef;
+    margin: 8px 0;
+    padding: 15px;
+    border-radius: 8px;
+    /* Visual accent bar */
+    border-left: 5px solid #007bff; 
+    font-size: 1em;
+}
+
+/* --- Message Box --- */
+.message {
+    padding: 15px;
+    background-color: #d4edda; /* Light green success color */
+    color: #155724; /* Dark green text */
+    border: 1px solid #c3e6cb;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
