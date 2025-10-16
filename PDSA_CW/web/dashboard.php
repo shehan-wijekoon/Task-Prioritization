@@ -81,9 +81,9 @@ $currentTasks = $scheduler->viewAllTasks();
                     <option value="1">Level 1 (Low Urgency)</option>
                 </select>
                 
-                <input type="number" name="time" step="0.5" min="0.5" placeholder="Time Required (Hours)" required>
+                <input type="number" name="Time" step="0.5" min="0.5" placeholder="Time Required (Hours)" required>
                 
-                <button type="submit" name="addTask">Add Task</button>
+                <button type="submit" name="AddTask">Add Task</button>
             </form>
         </div>
 
@@ -96,7 +96,7 @@ $currentTasks = $scheduler->viewAllTasks();
                     <p><strong>Next Up:</strong> <?php echo $nextTask->__toString(); ?></p>
                     <button type="submit" name="completeTask" class="complete-button">Mark as Complete</button>
                 <?php else: ?>
-                    <p>The queue is empty! Time for a break. 🥳</p>
+                    <p>The queue is empty! Time for a break. </p>
                 <?php endif; ?>
             </form>
         </div>
