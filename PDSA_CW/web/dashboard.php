@@ -9,14 +9,14 @@ require_once __DIR__ . '/../src/Services/TaskScheduler.php';
 session_start();
 
 
-// Initialize the scheduler and store it in the session
+
 if (!isset($_SESSION['scheduler'])) {
     $_SESSION['scheduler'] = new TaskScheduler();
 }
 $scheduler = $_SESSION['scheduler'];
 
 
-// --- HANDLE FORM SUBMISSION ---
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['addTask'])) {
         
@@ -25,33 +25,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $time = (float)($_POST['time'] ?? 0);
         
         if ($name && $time > 0) {
-            // This calls the addTask method, which uses the MaxHeap's O(log n) insert.
+            
             $scheduler->addTask($name, $level, $time);
             
-            header('Location: index.php');
+            header('Location: dashboard.php');
             exit;
         }
     } elseif (isset($_POST['completeTask'])) {
         
-        // This calls getNextTaskToWorkOn, which uses the MaxHeap's O(log n) extractMax.
+        
         $completedTask = $scheduler->getNextTaskToWorkOn();
         if ($completedTask) {
-            $_SESSION['message'] = "✅ Task Completed: {$completedTask->name} (Priority Key: " . number_format($completedTask->priorityKey, 2) . ")";
+            $_SESSION['message'] = "Task Completed: {$completedTask->name} (Priority Key: " . number_format($completedTask->priorityKey, 2) . ")";
         } else {
             $_SESSION['message'] = "The schedule is empty!";
         }
-        header('Location: index.php');
+        header('Location: dashboard.php');
         exit;
     }
 }
 
 
-// Clear message after display
+
 $message = $_SESSION['message'] ?? null;
 unset($_SESSION['message']);
 
 
-// Retrieve all tasks for display (for demonstration)
+
 $currentTasks = $scheduler->viewAllTasks();
 
 ?>
@@ -96,6 +96,7 @@ $currentTasks = $scheduler->viewAllTasks();
                     <p><strong>Next Up:</strong> <?php echo $nextTask->__toString(); ?></p>
                     <button type="submit" name="completeTask" class="complete-button">Mark as Complete</button>
                 <?php else: ?>
+                    <p>The queue is empty! Time for a break.</p>
                     <p>The queue is empty! Time for a break. </p>
                 <?php endif; ?>
             </form>
