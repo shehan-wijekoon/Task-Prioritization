@@ -12,7 +12,7 @@ class MaxHeap {
     public function __construct() {
         $this->heap = [];
     }
-
+    
     public function isEmpty(): bool {
         return empty($this->heap);
     }
